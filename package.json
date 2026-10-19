@@ -1,0 +1,38 @@
+
+{
+  "name": "flowmaster_pranali",
+  "version": "1.0.0",
+  "description": "Event-driven loan approval workflow using Node.js, Kafka, PostgreSQL and Redis",
+  "main": "orchestrator/server.js",
+  "scripts": {
+    "start": "node orchestrator/server.js",
+    "start:verification": "node verification-service/server.js",
+    "start:credit": "node credit-service/server.js",
+    "db:init": "node shared/init-db.js",
+    "kafka:topics": "node shared/create-topics.js",
+    "check:orchestrator": "node --check orchestrator/server.js",
+    "check:verification": "node --check verification-service/server.js",
+    "check:credit": "node --check credit-service/server.js",
+    "check:kafka": "node --check shared/kafka.js"
+  },
+  "keywords": [
+    "nodejs",
+    "microservices",
+    "kafka",
+    "saga-pattern",
+    "loan-approval"
+  ],
+  "author": "Prenali",
+  "license": "ISC",
+  "dependencies": {
+    "bullmq": "^6.3.16",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "ioredis": "^6.0.0",
+    "js-yaml": "^5.5.0",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.23.1",
+    "pino": "^10.4.0",
+    "prom-client": "^15.1.3"
+  }
+}

@@ -1,0 +1,15 @@
+name: loan-approval
+version: 1
+
+steps:
+  - name: verify_identity
+    service: verification-service
+    action: verify
+
+  - name: check_credit
+    service: credit-service
+    action: check
+
+  - name: approve_loan
+    service: orchestrator
+    action: approve
